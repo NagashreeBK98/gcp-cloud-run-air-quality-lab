@@ -52,6 +52,9 @@ gcp-cloud-run-air-quality-lab/
 
 ## Screenshots
 <!-- Add your screenshots here -->
+<img width="800" height="354" alt="image" src="https://github.com/user-attachments/assets/3fe37c4a-8bba-4387-8dc7-ca5f48dd53cc" />
+<img width="800" height="460" alt="image" src="https://github.com/user-attachments/assets/b21575c5-aafa-4dc2-818c-0ead3b5751e8" />
+
 
 ---
 
