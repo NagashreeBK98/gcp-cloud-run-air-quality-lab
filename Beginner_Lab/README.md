@@ -1,38 +1,37 @@
 # Beginner Lab — Air Quality Monitor
 
+## Live Demo
+**Service URL:** https://air-quality-beginner-932441309698.us-central1.run.app
+
+| Endpoint | Live Link |
+|---|---|
+| Home | https://air-quality-beginner-932441309698.us-central1.run.app/ |
+| Health Check | https://air-quality-beginner-932441309698.us-central1.run.app/health |
+| All Cities AQI | https://air-quality-beginner-932441309698.us-central1.run.app/aqi |
+| Boston AQI | https://air-quality-beginner-932441309698.us-central1.run.app/aqi/Boston |
+| Chicago AQI | https://air-quality-beginner-932441309698.us-central1.run.app/aqi/Chicago |
+
+---
+
 ## Overview
 A simple Flask application deployed on Google Cloud Run that serves
-Air Quality Index (AQI) data for major US cities.
+Air Quality Index (AQI) data for major US cities with health recommendations.
+
+**Modification from professor's lab:** Instead of a basic "Hello World" response,
+this app serves real-world air quality data with multiple endpoints, health checks,
+AQI color coding, and structured JSON responses.
+
+---
 
 ## Endpoints
 | Endpoint | Description |
 |---|---|
-| `/` | Home page |
-| `/health` | Health check |
-| `/aqi` | AQI for all cities |
-| `/aqi/<city>` | AQI for a specific city |
+| `/` | Home page with available routes |
+| `/health` | Health check endpoint |
+| `/aqi` | AQI data for all cities |
+| `/aqi/<city>` | AQI data for a specific city |
+
+---
 
 ## Run Locally
 ```bash
-pip install -r requirements.txt
-python app.py
-```
-
-## Docker
-```bash
-docker build -t air-quality-beginner .
-docker run -p 8080:8080 air-quality-beginner
-```
-
-## Deploy to Cloud Run
-```bash
-docker build -t gcr.io/YOUR_PROJECT_ID/air-quality-beginner .
-gcloud auth configure-docker
-docker push gcr.io/YOUR_PROJECT_ID/air-quality-beginner
-
-gcloud run deploy air-quality-beginner \
-  --image gcr.io/YOUR_PROJECT_ID/air-quality-beginner \
-  --region us-central1 \
-  --platform managed \
-  --allow-unauthenticated
-```
