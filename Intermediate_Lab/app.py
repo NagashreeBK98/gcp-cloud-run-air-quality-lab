@@ -111,7 +111,7 @@ def aqi_by_state(state_code):
                 bigquery.ScalarQueryParameter("limit", "INT64", limit),
             ]
         )
-        results = client.query(query, job_config=job_config).result()
+        results = client.query(query, job_config=job_config, location="US").result()
         rows = list(results)
 
         if not rows:
@@ -163,7 +163,7 @@ def aqi_worst():
             ORDER BY avg_aqi DESC
             LIMIT 10
         """
-        results = client.query(query).result()
+        results = client.query(query, location="US").result()
         counties = []
         for row in results:
             counties.append({
@@ -205,7 +205,7 @@ def aqi_summary():
             ORDER BY avg_aqi DESC
             LIMIT 20
         """
-        results = client.query(query).result()
+        results = client.query(query, location="US").result()
         states = []
         for row in results:
             states.append({
@@ -255,7 +255,7 @@ def export_state_report(state_code):
                 bigquery.ScalarQueryParameter("state_code", "STRING", state_code),
             ]
         )
-        results = bq_client.query(query, job_config=job_config).result()
+        results = bq_client.query(query, job_config=job_config, location="US").result()
         rows = list(results)
 
         if not rows:
